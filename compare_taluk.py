@@ -75,7 +75,7 @@ def calculateAcreage(crop,filepath):
     print("------------------------------------")
     return(varianceval,area)
 
-shpfile1 = ogr.Open("/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Dholka.shp")
+shpfile1 = ogr.Open("/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Dholka.shp")
 shape1 = shpfile1.GetLayer(0)
 feature1 = shape1.GetFeature(0)
 talukArea1 = feature1.geometry().GetArea()/1000000
@@ -85,9 +85,9 @@ shape2 = shpfile2.GetLayer(0)
 feature2 = shape2.GetFeature(0)
 talukArea2 = feature2.geometry().GetArea()/1000000
 
-#paddyacreage = calculateAcreage("Paddy", "/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif")
-variance1, wheatacreage_1 = calculateAcreage("Wheat", "/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif")
-variance2, wheatacreage_2 = calculateAcreage("Wheat", "/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/sanand_wheat_tiff.tif")
+#paddyacreage = calculateAcreage("Paddy", "/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif")
+variance1, wheatacreage_1 = calculateAcreage("Wheat", "/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif")
+variance2, wheatacreage_2 = calculateAcreage("Wheat", "/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/sanand_wheat_tiff.tif")
 
 taluka_variances =[variance1,variance2] 
 print("Area of taluka1:" , talukArea1, "sqkm")
@@ -119,8 +119,8 @@ def compare_taluka(shapefile_path_list, imagefile_path_list):
     max_region_name = imagefile_path_list[max_val].split('/')[-1].split('.')[0].split('_')[0]
     return min_region_name , max_region_name
         
-shape_list = ['/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Dholka.shp','/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Saanand.shp']
-image_list = ['/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif','/home/ispluser/Dimple/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/sanand_wheat_tiff.tif']
+shape_list = ['/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Dholka.shp','/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/Ahm_taluk_shp/Saanand.shp']
+image_list = ['/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/dholka_wheat_tiff.tif','/home/ispluser/jay/Wheat_Paddy_ahm/Tutorial1/NDVI_Mask_tiff/sanand_wheat_tiff.tif']
 
 
 minimum_region , maximum_region = compare_taluka(shape_list, image_list)
